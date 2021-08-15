@@ -7,14 +7,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class SpartanGetRequests {
-    String baseUrl = "http://52.207.61.129:8000";
+
 
 //    Given Accept type application/json
 //    When user send GET request to api/spartans end point
 //    Then status code must 200
 //    And response Content Type must be application/json
 //    And response body should include spartan result
-
+    String baseUrl = "http://52.207.61.129:8000";
     @Test
     public void test1(){
 
@@ -39,5 +39,13 @@ public class SpartanGetRequests {
         Assertions.assertEquals(response.contentType(),"application/json");
 
     }
+    
+     /*
+        Given accept is application/json
+        When users sends a get request to /api/spartans/3
+        Then status code should be 200
+        And content type should be application/json
+        and json body should contain Fidole
+     */
 
 }
