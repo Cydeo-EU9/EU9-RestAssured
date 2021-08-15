@@ -56,8 +56,6 @@ public class HrGetRequests {
         //verify body contains Americas
         assertTrue(response.body().asString().contains("Americas"));
 
-
-
     }
 
 
