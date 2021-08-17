@@ -65,11 +65,11 @@ public class SpartanTestsWithParameters {
                            .when()
                                     .get("/api/spartans/{id}");
 
-        //verify status code
+        //verify status code 404
         assertEquals(404,response.statusCode());
         //verify content type
         assertEquals("application/json",response.contentType());
-        //verify Blythe in the json payload/body
+        //verify NotFound in the json payload/body
         assertTrue(response.body().asString().contains("Not Found"));
 
     }
