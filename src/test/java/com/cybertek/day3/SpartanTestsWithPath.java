@@ -81,7 +81,7 @@ public class SpartanTestsWithPath {
         String name = response.path("name[0]");
         System.out.println("name = " + name);
 
-        String lastFirstName = response.path("name[-2]");
+        String lastFirstName = response.path("name[-1]");
         System.out.println("lastFirstName = " + lastFirstName);
 
         //save names inside the list of string
