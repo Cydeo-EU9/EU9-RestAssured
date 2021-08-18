@@ -1,7 +1,11 @@
 package com.cybertek.day3;
 
 
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,5 +25,22 @@ public class ORDSApiTestsWithParameters {
         And Content type is application/json
         And Payload should contain "United States of America"
      */
+
+    @DisplayName("GET request to /countries with Query Param")
+    @Test
+    public void test1(){
+      Response response= given().accept(ContentType.JSON)
+                    .and().queryParam("q","{\"region_id\":2}")
+                    .log().all()
+            .when()
+                    .get("/countries");
+
+      assertEquals(200,response.statusCode());
+      assertEquals("application/json",response.header("Content-Type"));
+      assertTrue(response.body().asString().contains("United States of America"));
+
+      response.prettyPrint();
+
+    }
 
 }
