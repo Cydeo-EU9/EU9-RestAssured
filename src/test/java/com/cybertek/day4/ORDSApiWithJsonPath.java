@@ -35,7 +35,26 @@ public class ORDSApiWithJsonPath extends HRTestBase {
         System.out.println(allCountryIds);
 
         //get all country names where their region id is equal to 2
-        List<String> countryNameWithRegionId2 = jsonPath.getList("items.findAll {it.region_id==2}.country_name");
+        List<String> countryNameWithRegionId2 = jsonPath.getList("items.findAll {it.region_id==3}.country_name");
         System.out.println(countryNameWithRegionId2);
     }
+
+    @DisplayName("GET requesto /employees with query param")
+    @Test
+    public void test2(){
+        //we added limit query param to get 107 employees
+        Response response = given().queryParam("limit", 107)
+                .when().get("/employees");
+
+        JsonPath jsonPath = response.jsonPath();
+
+        //get me all email of employees who is working as IT_PROG
+        List<String> employeeITProgs = jsonPath.getList("items.findAll {it.job_id==\"IT_PROG\"}.email");
+        System.out.println(employeeITProgs);
+
+        //get me first name of employees who is making more than 10000
+
+
+    }
+
 }
