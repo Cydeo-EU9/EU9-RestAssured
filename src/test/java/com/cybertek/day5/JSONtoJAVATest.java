@@ -30,4 +30,15 @@ public class JSONtoJAVATest extends SpartanTestBase {
         String actualName = (String) jsonMap.get("name");
         assertThat(actualName,is("Meta"));
     }
+
+    @DisplayName("GET all spartans to JAVA data structure")
+    @Test
+    public void getAllSpartan(){
+
+
+
+
+
+
+    }
 }
