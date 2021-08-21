@@ -41,7 +41,7 @@ public class SpartanHamcrestTest extends SpartanTestBase {
 
         //save status code
 
-        List<String> names = given().accept(ContentType.JSON)
+        int statusCode = given().accept(ContentType.JSON)
                 .and()
                 .queryParams("nameContains","j",
                         "gender","Male")
@@ -51,7 +51,9 @@ public class SpartanHamcrestTest extends SpartanTestBase {
                 .statusCode(200)
                 .and()
                 .body("totalElement",greaterThanOrEqualTo(3))
-                .extract().response().jsonPath().getList("content.name");
+                .extract().response().statusCode();
+
+        System.out.println(statusCode);
 
 
 
