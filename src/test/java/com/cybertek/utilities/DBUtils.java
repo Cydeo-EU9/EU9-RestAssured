@@ -22,6 +22,16 @@ public class DBUtils {
             e.printStackTrace();
         }
     }
+
+    public static void createConnection(String dbUrl,String dbUsername,String dbPassword) {
+
+        try {
+            connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
     public static void destroy() {
         try {
             if (resultSet != null) {
