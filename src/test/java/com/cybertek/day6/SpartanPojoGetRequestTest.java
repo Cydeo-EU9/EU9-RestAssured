@@ -8,6 +8,9 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -82,9 +85,21 @@ public class SpartanPojoGetRequestTest extends SpartanTestBase {
         System.out.println(searchResult.getContent().get(0).getName());
     }
 
+    @DisplayName("GET  /spartans/search and save as List<Spartan>")
     @Test
     public void test4(){
+        List<Spartan> spartanList = given()
+                .accept(ContentType.JSON)
+                .and()
+                .queryParams("nameContains", "a",
+                        "gender", "Male")
+                .when()
+                .get("/api/spartans/search")
+                .then()
+                .statusCode(200)
+                .extract().jsonPath().getList("content", Spartan.class);
 
+        System.out.println(spartanList.get(1).getName());
 
     }
 
