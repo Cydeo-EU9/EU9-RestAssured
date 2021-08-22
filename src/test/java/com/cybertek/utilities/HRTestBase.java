@@ -16,12 +16,12 @@ public abstract class HRTestBase {
         String dbUsername = "hr";
         String dbPassword = "hr";
 
-        DBUtils.createConnection(dbUrl,dbUsername,dbPassword);
+      //  DBUtils.createConnection(dbUrl,dbUsername,dbPassword);
     }
 
     @AfterAll
     public static void teardown(){
 
-        DBUtils.destroy();
+        //DBUtils.destroy();
     }
 }
