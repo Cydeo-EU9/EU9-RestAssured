@@ -39,6 +39,7 @@ public class SpartanPojoGetRequestTest extends SpartanTestBase {
 
         Spartan s15 = jsonPath.getObject("", Spartan.class);
 
+
         System.out.println(s15);
         System.out.println("s15.getName() = " + s15.getName());
         System.out.println("s15.getPhone() = " + s15.getPhone());
