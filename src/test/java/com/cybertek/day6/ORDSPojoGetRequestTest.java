@@ -26,7 +26,5 @@ public class ORDSPojoGetRequestTest extends HRTestBase {
         System.out.println("region1.getRegion_name() = " + region1.getRegion_name());
         System.out.println("region1.getLinks().get(0).getHref() = " + region1.getLinks().get(0).getHref());
 
-
-
     }
 }
