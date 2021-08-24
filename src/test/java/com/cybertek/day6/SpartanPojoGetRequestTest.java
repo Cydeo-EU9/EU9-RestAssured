@@ -97,7 +97,7 @@ public class SpartanPojoGetRequestTest extends SpartanTestBase {
                 .get("/api/spartans/search")
                 .then()
                 .statusCode(200)
-                .extract().jsonPath().getList("content", Spartan.class);
+                .extract().jsonPath().getList("items", Spartan.class);
 
         System.out.println(spartanList.get(1).getName());
 

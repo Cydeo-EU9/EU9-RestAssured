@@ -52,6 +52,8 @@ public class HamcrestMatchersApiTest {
                             .accept(ContentType.JSON)
                             .and()
                             .pathParam("id",10423)
+                            .and()
+
                     .when()
                             .get("http://api.cybertektraining.com/teacher/{id}")
                     .then()
