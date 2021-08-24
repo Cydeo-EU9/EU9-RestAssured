@@ -41,8 +41,8 @@ public class SpartanPostRequestDemo extends SpartanTestBase {
         assertThat(response.statusCode(),is(201));
         assertThat(response.contentType(),is("application/json"));
 
-        String expectedResponceMessage = "A Spartan is Born!";
-        assertThat(response.path("success"),is(expectedResponceMessage));
+        String expectedResponseMessage = "A Spartan is Born!";
+        assertThat(response.path("success"),is(expectedResponseMessage));
         assertThat(response.path("data.name"),is("Severus"));
         assertThat(response.path("data.gender"),is("Male"));
         assertThat(response.path("data.phone"),is(8877445596L));
