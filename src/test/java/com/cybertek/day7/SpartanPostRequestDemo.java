@@ -129,26 +129,30 @@ public class SpartanPostRequestDemo extends SpartanTestBase {
         spartan.setPhone(8877445596L);
 
         System.out.println("spartan = " + spartan);
+        String expectedResponseMessage = "A Spartan is Born!";
 
-        Response response = given().accept(ContentType.JSON).and() //what we are asking from api which is JSON response
+        int idFromPost = given().accept(ContentType.JSON).and() //what we are asking from api which is JSON response
                 .contentType(ContentType.JSON) //what we are sending to api, which is JSON also
                 .body(spartan).log().all()
                 .when()
                 .post("/api/spartans")
-                ;
+                .then()
+                .statusCode(201)
+                .contentType("application/json")
+                .body("success", is(expectedResponseMessage))
+                .extract().jsonPath().getInt("data.id");
 
-        //verify status code
-        assertThat(response.statusCode(),is(201));
-        assertThat(response.contentType(),is("application/json"));
+        System.out.println("idFromPost = " + idFromPost);
+        //send a get request to id
+        Spartan spartanPosted = given().accept(ContentType.JSON)
+                .and().pathParam("id", idFromPost)
+                .when().get("/api/spartans/{id}")
+                .then().statusCode(200).log().all().extract().as(Spartan.class);
 
-        String expectedResponseMessage = "A Spartan is Born!";
-        assertThat(response.path("success"),is(expectedResponseMessage));
-        assertThat(response.path("data.name"),is("SeverusSpartan"));
-        assertThat(response.path("data.gender"),is("Male"));
-        assertThat(response.path("data.phone"),is(8877445596L));
-
-        response.prettyPrint();
-
+        assertThat(spartanPosted.getName(),is(spartan.getName()));
+        assertThat(spartanPosted.getGender(),is(spartan.getGender()));
+        assertThat(spartanPosted.getPhone(),is(spartan.getPhone()));
+        assertThat(spartanPosted.getId(),is(idFromPost));
 
     }
 
