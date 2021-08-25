@@ -122,6 +122,9 @@ public class SpartanPostRequestDemo extends SpartanTestBase {
     @DisplayName("POST with Map to Spartan Class")
     @Test
     public void postMethod4(){
+        //this example we implement serialization with creatin spartan object sending as a request body
+        //also implemented deserialization getting the id,sending get request and saving that body as a response
+
         //create one object from your pojo, send it as a JSON
         Spartan spartan = new Spartan();
         spartan.setName("SeverusSpartan");
