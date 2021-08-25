@@ -1,6 +1,8 @@
 package com.cybertek.day7;
 
+import com.cybertek.pojo.Spartan;
 import com.cybertek.utilities.SpartanTestBase;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
@@ -79,6 +81,36 @@ public class SpartanPostRequestDemo extends SpartanTestBase {
         String expectedResponseMessage = "A Spartan is Born!";
         assertThat(response.path("success"),is(expectedResponseMessage));
         assertThat(response.path("data.name"),is("Severus"));
+        assertThat(response.path("data.gender"),is("Male"));
+        assertThat(response.path("data.phone"),is(8877445596L));
+
+        response.prettyPrint();
+    }
+
+    @DisplayName("POST with Map to Spartan Class")
+    @Test
+    public void postMethod3(){
+        //create one object from your pojo, send it as a JSON
+       Spartan spartan = new Spartan();
+        spartan.setName("SeverusSpartan");
+        spartan.setGender("Male");
+        spartan.setPhone(8877445596L);
+
+        System.out.println("spartan = " + spartan);
+
+        Response response = given().accept(ContentType.JSON).and() //what we are asking from api which is JSON response
+                .contentType(ContentType.JSON) //what we are sending to api, which is JSON also
+                .body(spartan).log().all()
+                .when()
+                .post("/api/spartans");
+
+        //verify status code
+        assertThat(response.statusCode(),is(201));
+        assertThat(response.contentType(),is("application/json"));
+
+        String expectedResponseMessage = "A Spartan is Born!";
+        assertThat(response.path("success"),is(expectedResponseMessage));
+        assertThat(response.path("data.name"),is("SeverusSpartan"));
         assertThat(response.path("data.gender"),is("Male"));
         assertThat(response.path("data.phone"),is(8877445596L));
 
