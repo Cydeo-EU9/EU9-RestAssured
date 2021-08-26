@@ -17,13 +17,15 @@ public class BookItTest {
 
     }
 
+    //create BookItUtil then create a method, that accepts email and password return token Bearer +yourToken as a String
+
     String accessToken = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMzkiLCJhdWQiOiJzdHVkZW50LXRlYW0tbGVhZGVyIn0._vM1-eRoS7SsHu6T-QPdJoEdA8LSwnxUvvTTbhV-8ms";
 
     @DisplayName("GET all campuses")
     @Test
     public void testAuth1(){
-
-        given().
+        //how to pass bearer token for bookit ? use header method to give as key value header
+      given().
                 header("Authorization",accessToken)
                 .and().accept(ContentType.JSON)
         .when()
@@ -31,8 +33,6 @@ public class BookItTest {
         .then()
                 .statusCode(200)
                 .log().all();
-
-
 
     }
 

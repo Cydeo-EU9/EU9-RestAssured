@@ -28,6 +28,7 @@ public class SpartanWithAuthTests extends SpartanAuthTestBase {
         given()
                 .auth().basic("admin","admin")
                 .and().accept(ContentType.JSON)
+                .log().all()
         .when()
                 .get("/api/spartans")
         .then()
