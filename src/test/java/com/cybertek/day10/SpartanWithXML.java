@@ -2,6 +2,7 @@ package com.cybertek.day10;
 
 import com.cybertek.utilities.SpartanAuthTestBase;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.*;
@@ -32,5 +33,20 @@ public class SpartanWithXML extends SpartanAuthTestBase {
 
 
     }
+
+    @DisplayName("GET request /api/spartans with xmlPath")
+    @Test
+    public void testXmlPath(){
+
+        Response response = given()
+                                    .accept(ContentType.XML) // we want xml response
+                                    .and()
+                                   .auth().basic("admin", "admin")
+                          .when()
+                                  .get("/api/spartans");
+
+
+    }
+
 
 }
