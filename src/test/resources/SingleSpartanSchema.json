@@ -1,18 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "http://example.com/example.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Single Spartan JsonSchema",
   "type": "object",
-  "title": "The root schema",
-  "description": "The root schema comprises the entire JSON document.",
-  "default": {},
-  "examples": [
-    {
-      "id": 10,
-      "name": "Lorenza",
-      "gender": "Female",
-      "phone": 3312820936
-    }
-  ],
   "required": [
     "id",
     "name",
@@ -21,47 +10,41 @@
   ],
   "properties": {
     "id": {
-      "$id": "#/properties/id",
+      "title": "Id",
       "type": "integer",
-      "title": "The id schema",
-      "description": "An explanation about the purpose of this instance.",
-      "default": 0,
       "examples": [
-        10
-      ]
+        33
+      ],
+      "minimum": 1,
+      "maximum": 100000
     },
     "name": {
-      "$id": "#/properties/name",
+      "title": "Name",
       "type": "string",
-      "title": "The name schema",
-      "description": "An explanation about the purpose of this instance.",
       "default": "",
       "examples": [
-        "Lorenza"
-      ]
+        "Wilek"
+      ],
+      "minLength": 2,
+      "maxLength": 15
     },
     "gender": {
-      "$id": "#/properties/gender",
+      "title": "Gender",
       "type": "string",
-      "title": "The gender schema",
-      "description": "An explanation about the purpose of this instance.",
-      "default": "",
-      "pattern":"(Male|Female)",
+      "default": "Male",
       "examples": [
-        "Female"
-      ]
+        "Male"
+      ],
+      "pattern": "^(Male|Female)$"
     },
     "phone": {
-      "$id": "#/properties/phone",
+      "title": "Phone",
       "type": "integer",
-      "title": "The phone schema",
-      "description": "An explanation about the purpose of this instance.",
-      "default": 0,
-      "minimum": 12,
       "examples": [
-        3312820936
-      ]
+        2877865902
+      ],
+      "minimum": 1000000000,
+      "maximum": 9999999999999
     }
-  },
-  "additionalProperties": true
+  }
 }
