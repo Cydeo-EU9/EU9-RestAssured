@@ -2,6 +2,7 @@ package com.cybertek.day10;
 
 import com.cybertek.utilities.SpartanAuthTestBase;
 import io.restassured.http.ContentType;
+import io.restassured.module.jsv.JsonSchemaValidator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -24,6 +25,7 @@ public class JsonSchemaValidationTest extends SpartanAuthTestBase {
                     .get("/api/spartans/{id}")
             .then()
                     .statusCode(200)
+                    .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("SingleSpartanSchema.json"))
                     .log().all();
 
     }
