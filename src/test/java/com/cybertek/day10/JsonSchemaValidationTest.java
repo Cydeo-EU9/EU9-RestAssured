@@ -1,6 +1,7 @@
 package com.cybertek.day10;
 
 import com.cybertek.utilities.SpartanAuthTestBase;
+import io.restassured.http.ContentType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -13,10 +14,17 @@ public class JsonSchemaValidationTest extends SpartanAuthTestBase {
     @Test
     public void schemaValidation(){
 
-
-
-
-
+            given()
+                    .accept(ContentType.JSON)
+                    .and()
+                    .pathParam("id",10)
+                    .and()
+                    .auth().basic("admin","admin")
+            .when()
+                    .get("/api/spartans/{id}")
+            .then()
+                    .statusCode(200)
+                    .log().all();
 
     }
 
