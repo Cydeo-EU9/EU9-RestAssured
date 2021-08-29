@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "title": "The is Simple Schema for Get All Spartan response, it define required structure of how json Array object should look like",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "name",
+      "gender",
+      "phone"
+    ],
+    "properties": {
+      "id": {
+        "title": "Id",
+        "type": "integer",
+        "examples": [
+          33
+        ],
+        "minimum": 1,
+        "maximum": 100000
+      },
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "default": "",
+        "examples": [
+          "Wilek"
+        ],
+        "minLength": 2,
+        "maxLength": 15
+      },
+      "gender": {
+        "title": "Gender",
+        "type": "string",
+        "default": "Male",
+        "examples": [
+          "Male"
+        ],
+        "pattern": "^(Male|Female)$"
+      },
+      "phone": {
+        "title": "Phone",
+        "type": "integer",
+        "examples": [
+          2877865902
+        ],
+        "minimum": 1000000000,
+        "maximum": 9999999999999
+      }
+    }
+  }
+}
