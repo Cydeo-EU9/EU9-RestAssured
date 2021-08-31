@@ -23,6 +23,10 @@ public class ParametrizedTestInJunit5 {
 
         }
 
+    // SEND GET REQUEST TO https://api.zippopotam.us/us/{zipcode}
+    // with these zipcodes 22030,22031, 22032, 22033 , 22034, 22035, 22036
+    // check status code 200
+
 
 
 }
