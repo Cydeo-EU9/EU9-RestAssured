@@ -32,6 +32,13 @@ public class OldRestAssuredTest extends SpartanNewBase {
     @Test
     public void test2(){
 
+        /*
+            in previous version of Restassured, the given when then style
+            was actually written in given expect when format.
+            it will assert all the result and give one answer and does not fail whole thing
+            if first one fail unlike new structure.
+
+         */
         given()
                 .accept(ContentType.JSON)
                 .and()
