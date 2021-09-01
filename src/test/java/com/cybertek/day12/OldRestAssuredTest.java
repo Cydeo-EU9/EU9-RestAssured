@@ -47,7 +47,7 @@ public class OldRestAssuredTest extends SpartanNewBase {
         .expect()
                 .statusCode(200)
                 .and()
-                .contentType(ContentType.JSON)
+                .contentType("application/json")
                 .body("id[0]",is(10))
                 .body("id[5]",is(199))
                 .logDetail(LogDetail.ALL)   //log way using with expect()
