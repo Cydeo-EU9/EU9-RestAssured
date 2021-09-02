@@ -1,6 +1,7 @@
 package com.cybertek.day12;
 
 import com.cybertek.utilities.BookitTestBase;
+import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -13,6 +14,10 @@ public class BookitSpecTest extends BookitTestBase {
         //verify status code and content type
             given()
                     .spec(teacherReqSpec)
+            .when()
+                    .get("/api/users/me")
+            .then()
+                    .spec(responseSpec);
 
 
 
@@ -24,7 +29,12 @@ public class BookitSpecTest extends BookitTestBase {
         //send a get request to /api/users/me endpoint as a student-member
         //verify status code and content type
 
-
+        given()
+                .spec(studentMemberReqSpec)
+                .when()
+                .get("/api/users/me")
+                .then()
+                .spec(responseSpec);
 
 
 
