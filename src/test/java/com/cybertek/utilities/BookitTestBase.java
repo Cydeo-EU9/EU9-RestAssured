@@ -68,6 +68,7 @@ public class BookitTestBase {
                 .logDetail(LogDetail.ALL);
 
     }
+
     //teacher,student-member,student-leader
     public static RequestSpecification userReqSpec(String role){
         //advanced lazy way :)
