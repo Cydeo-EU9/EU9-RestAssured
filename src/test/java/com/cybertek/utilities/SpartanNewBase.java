@@ -12,8 +12,9 @@ import static io.restassured.RestAssured.*;
 public class SpartanNewBase {
 
     public static RequestSpecification requestSpec;
-    public static RequestSpecification userSpec;
     public static ResponseSpecification responseSpec;
+    public static RequestSpecification userSpec;
+    public static RequestSpecification adminSpec;
 
     @BeforeAll
     public static void init(){
@@ -27,6 +28,12 @@ public class SpartanNewBase {
                         .and()
                         .auth().basic("admin", "admin")
                         .log().all();
+
+        userSpec =given()
+                .accept(ContentType.JSON)
+                .and()
+                .auth().basic("user", "user")
+                .log().all();
 
        responseSpec = expect().statusCode(200)
                 .and()

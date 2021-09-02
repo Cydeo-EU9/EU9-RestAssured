@@ -54,6 +54,27 @@ public class SpartanSpecTest extends SpartanNewBase {
 
     }
 
+    @Test
+    public void test3(){
+
+            given()
+                    .spec(userSpec)
+                    .and()
+                    .queryParams("nameContains","j",
+                            "gender","Female")
+            .when()
+                    .get("/spartans/search")
+            .then()
+                    .spec(responseSpec)
+                    .body("numberOfElements",is(7));
+
+
+
+
+
+
+    }
+
 
 
 }
