@@ -40,6 +40,8 @@ public class SpartanNewBase {
                 .contentType(ContentType.JSON)
                 .logDetail(LogDetail.ALL);  //logging with response specficiation
 
+
+
     }
 
     @AfterAll

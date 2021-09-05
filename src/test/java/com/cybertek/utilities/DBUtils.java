@@ -12,9 +12,9 @@ public class DBUtils {
     private static ResultSet resultSet;
 
     public static void createConnection() {
-        String dbUrl = "jdbc:oracle:thin:@3.80.189.73:1521:xe";
-        String dbUsername = "hr";
-        String dbPassword = "hr";
+        String dbUrl = ConfigurationReader.getProperty("dbUrl");
+        String dbUsername = ConfigurationReader.getProperty("dbUsername");
+        String dbPassword = ConfigurationReader.getProperty("dbPassword");
         try {
             connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
         } catch (SQLException e) {
