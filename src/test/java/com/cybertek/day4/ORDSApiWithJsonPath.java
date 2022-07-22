@@ -25,7 +25,7 @@ public class ORDSApiWithJsonPath extends HRTestBase {
 
         //to use jsonpath we assign response to JsonPath
         JsonPath jsonPath = response.jsonPath();
-
+        response.prettyPrint();
         String secondCountryName = jsonPath.getString("items[1].country_name");
         System.out.println("secondCountryName = " + secondCountryName);
 
@@ -47,7 +47,7 @@ public class ORDSApiWithJsonPath extends HRTestBase {
                 .when().get("/employees");
 
         JsonPath jsonPath = response.jsonPath();
-
+response.prettyPrint();
         //get me all email of employees who is working as IT_PROG
         List<String> employeeITProgs = jsonPath.getList("items.findAll {it.job_id==\"IT_PROG\"}.email");
         System.out.println(employeeITProgs);
