@@ -55,7 +55,12 @@ And body should contains following information
         System.out.println(jsonPath.getString("places.latitude"));
         assertEquals("[42.4464, 42.4128]", jsonPath.getString("places.latitude"));
 
-
+        // verify "post code": "02178"  that  "latitude": "42.4464"
+        // GPATH syntax comes with "it statement": use it like a coding algorithm
+        String expectedLatitude = "[42.4464]";
+     String actualLatitude  = jsonPath.getString("places.findAll {it.\'post code\'==\"02178\"}.latitude");
+        assertEquals(expectedLatitude,actualLatitude);
+        System.out.println("actualLatitude = " + actualLatitude);
     }
 
 }
