@@ -1,0 +1,33 @@
+API: Application Programs Interface - Middleman
+
+API : Business Layer
+
+the companies control their database with their API
+like who will access and what data they can access
+
+API is also called in some case: Web Services, google map, weather, news,
+Zip Web Service  API
+
+WebApp+MobileApp  ---- API -----Backend(DataBase+Data Source)
+
+Request AND Response
+
+Postman for manually test APIs, but postman can be used in an automated way
+
+We use RestAssured Library to automate API testing
+
+Request : What do we need? End Point = URL + path parameters
+is query parameter part of the URL? NO
+        * We need Headers: content type+auoth
+        * POST,PUT and PATCH request (you might need body)
+
+Understanding API Documentation will get you the JOB (Swagger Document)
+
+RESPONSE: We verify headers, status code and body
+verifying body : 6 approach
+        - String method
+        - path
+        - jsonPath
+        - hemcrest matchers
+        - json to Java
+        - json to POJO
