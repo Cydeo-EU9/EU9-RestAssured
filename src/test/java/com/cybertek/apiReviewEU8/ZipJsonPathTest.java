@@ -50,6 +50,12 @@ And body should contains following information
         List<String> expectedZips = new ArrayList<>(Arrays.asList("02178","02478"));
         List<String> actualZips = jsonPath.getList("places.\'post code\'");
         assertEquals(expectedZips,actualZips);
+
+        // from Emre
+        System.out.println(jsonPath.getString("places.latitude"));
+        assertEquals("[42.4464, 42.4128]", jsonPath.getString("places.latitude"));
+
+
     }
 
 }
