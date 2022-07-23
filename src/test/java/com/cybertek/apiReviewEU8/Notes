@@ -31,3 +31,8 @@ verifying body : 6 approach
         - hemcrest matchers
         - json to Java
         - json to POJO
+
+    ** Path and JsonPath are using Gpath Syntax
+
+       Strange Vocabulary With API testing:
+       Lombok, JSON, JACKSON, GSON, POJO, GPATH, JAMAL, HEMCREST
