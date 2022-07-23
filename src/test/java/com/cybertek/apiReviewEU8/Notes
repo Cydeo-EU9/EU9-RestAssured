@@ -42,3 +42,9 @@ verifying body : 6 approach
 
        Strange Vocabulary With API testing:
        Lombok, JSON, JACKSON, GSON, POJO, GPATH, JAMAL, HEMCREST
+
+       How to choose which way to use?
+       - Only one data: String Manipulation (contains method)
+       - One time job, not a big project, more than one data: Collection, hemcrest, path or jsonPath
+       - At your companies: You need to spend time to create POJO Casses
+                - Takes time but very useful and maintainable

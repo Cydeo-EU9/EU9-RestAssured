@@ -31,5 +31,7 @@ public class ZipTestWithCollection extends ZipBase{
         // "state": "Virginia" verify: this information is inside the "places" key
         List<Map<String,Object>> places = (List<Map<String, Object>>) postCode.get("places");
 
+        assertEquals("Virginia",places.get(0).get("state"));
+        assertEquals("Fairfax",places.get(0).get("place name"));
     }
 }
