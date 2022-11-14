@@ -1,7 +1,7 @@
 package com.cydeo.day6;
 
-import com.cybertek.pojo.*;
-import com.cybertek.utilities.*;
+import com.cydeo.pojo.*;
+import com.cydeo.utilities.*;
 import io.restassured.path.json.*;
 import org.junit.jupiter.api.*;
 

@@ -1,6 +1,6 @@
 package com.cydeo.day4;
 
-import com.cybertek.utilities.*;
+import com.cydeo.utilities.*;
 import io.restassured.http.*;
 import io.restassured.response.*;
 import org.junit.jupiter.api.*;
